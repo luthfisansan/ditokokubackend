@@ -1,0 +1,15 @@
+/node_modules
+/vendor
+/storage/tmp
+*.DS_Store
+*__MACOSX
+/.idea
+/.vscode
+
+# allsweb
+/domain*
+.well-known/acme-challenge
+.user.ini
+*script.sh
+*get_changed_files.sh
+/Modules/Rental/
