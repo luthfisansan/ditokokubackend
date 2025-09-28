@@ -77,6 +77,8 @@ class WalletController extends Controller
         }
 
         $customer = User::find($request->user()->id);
+        $customer->wallet_balance = $request->amount;
+        $customer->save();
 
         $wallet = new WalletPayment();
         $wallet->user_id = $customer->id;
