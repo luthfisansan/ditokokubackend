@@ -1431,7 +1431,7 @@ class BusinessSettingsController extends Controller
             }
             if ($request->has('image')) {
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->image->move(public_path('assets/landing/image'), $imageName);
+                $request->image->move(public_path('public/assets/landing/image'), $imageName);
             }
             array_push($data, [
                 'img' => $imageName,
@@ -1449,20 +1449,20 @@ class BusinessSettingsController extends Controller
                 $data = json_decode($joinas->value, true);
             }
             if ($request->has('seller_banner_bg')) {
-                if (isset($data['seller_banner_bg']) && file_exists(public_path('assets/landing/image/' . $data['seller_banner_bg']))) {
-                    unlink(public_path('assets/landing/image/' . $data['seller_banner_bg']));
+                if (isset($data['seller_banner_bg']) && file_exists(public_path('public/assets/landing/image/' . $data['seller_banner_bg']))) {
+                    unlink(public_path('public/assets/landing/image/' . $data['seller_banner_bg']));
                 }
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->seller_banner_bg->move(public_path('assets/landing/image'), $imageName);
+                $request->seller_banner_bg->move(public_path('public/assets/landing/image'), $imageName);
                 $data['seller_banner_bg'] = $imageName;
             }
 
             if ($request->has('deliveryman_banner_bg')) {
-                if (isset($data['deliveryman_banner_bg']) && file_exists(public_path('assets/landing/image/' . $data['deliveryman_banner_bg']))) {
-                    unlink(public_path('assets/landing/image/' . $data['deliveryman_banner_bg']));
+                if (isset($data['deliveryman_banner_bg']) && file_exists(public_path('public/assets/landing/image/' . $data['deliveryman_banner_bg']))) {
+                    unlink(public_path('public/assets/landing/image/' . $data['deliveryman_banner_bg']));
                 }
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->deliveryman_banner_bg->move(public_path('assets/landing/image'), $imageName);
+                $request->deliveryman_banner_bg->move(public_path('public/assets/landing/image'), $imageName);
                 $data['deliveryman_banner_bg'] = $imageName;
             }
             Helpers::businessUpdateOrInsert(['key' => 'join_as_images'], [
@@ -1477,11 +1477,11 @@ class BusinessSettingsController extends Controller
                 $data = json_decode($download->value, true);
             }
             if ($request->has('image')) {
-                if (isset($data['img']) && file_exists(public_path('assets/landing/image/' . $data['img']))) {
-                    unlink(public_path('assets/landing/image/' . $data['img']));
+                if (isset($data['img']) && file_exists(public_path('public/assets/landing/image/' . $data['img']))) {
+                    unlink(public_path('public/assets/landing/image/' . $data['img']));
                 }
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->image->move(public_path('assets/landing/image'), $imageName);
+                $request->image->move(public_path('public/assets/landing/image'), $imageName);
                 $data['img'] = $imageName;
             }
 
@@ -1517,7 +1517,7 @@ class BusinessSettingsController extends Controller
             }
             if ($request->has('image')) {
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->image->move(public_path('assets/landing/image'), $imageName);
+                $request->image->move(public_path('public/assets/landing/image'), $imageName);
             }
             array_push($data, [
                 'img' => $imageName,
@@ -1546,11 +1546,11 @@ class BusinessSettingsController extends Controller
             }
 
             if ($request->has('image')) {
-                if ($preImageName && file_exists(public_path('assets/landing/image') . $preImageName)) {
-                    unlink(public_path('assets/landing/image') . $preImageName);
+                if ($preImageName && file_exists(public_path('public/assets/landing/image') . $preImageName)) {
+                    unlink(public_path('public/assets/landing/image') . $preImageName);
                 }
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->image->move(public_path('assets/landing/image'), $imageName);
+                $request->image->move(public_path('public/assets/landing/image'), $imageName);
             }
 
             $data[$request->module] = [
@@ -1571,7 +1571,7 @@ class BusinessSettingsController extends Controller
             }
             if ($request->has('image')) {
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->image->move(public_path('assets/landing/image'), $imageName);
+                $request->image->move(public_path('public/assets/landing/image'), $imageName);
             }
             array_push($data, [
                 'img' => $imageName,
@@ -1593,11 +1593,11 @@ class BusinessSettingsController extends Controller
             }
             if ($request->has('image')) {
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->image->move(public_path('assets/landing/image'), $imageName);
+                $request->image->move(public_path('public/assets/landing/image'), $imageName);
             }
             if ($request->has('brand_image')) {
                 $brandImageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->brand_image->move(public_path('assets/landing/image'), $brandImageName);
+                $request->brand_image->move(public_path('public/assets/landing/image'), $brandImageName);
             }
             array_push($data, [
                 'img' => $imageName,
@@ -1618,45 +1618,45 @@ class BusinessSettingsController extends Controller
                 $data = json_decode($images->value, true);
             }
             if ($request->has('top_content_image')) {
-                if (isset($data['top_content_image']) && file_exists(public_path('assets/landing/image/' . $data['top_content_image']))) {
-                    unlink(public_path('assets/landing/image/' . $data['top_content_image']));
+                if (isset($data['top_content_image']) && file_exists(public_path('public/assets/landing/image/' . $data['top_content_image']))) {
+                    unlink(public_path('public/assets/landing/image/' . $data['top_content_image']));
                 }
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->top_content_image->move(public_path('assets/landing/image'), $imageName);
+                $request->top_content_image->move(public_path('public/assets/landing/image'), $imageName);
                 $data['top_content_image'] = $imageName;
             }
             if ($request->has('about_us_image')) {
-                if (isset($data['about_us_image']) && file_exists(public_path('assets/landing/image/' . $data['about_us_image']))) {
-                    unlink(public_path('assets/landing/image/' . $data['about_us_image']));
+                if (isset($data['about_us_image']) && file_exists(public_path('public/assets/landing/image/' . $data['about_us_image']))) {
+                    unlink(public_path('public/assets/landing/image/' . $data['about_us_image']));
                 }
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->about_us_image->move(public_path('assets/landing/image'), $imageName);
+                $request->about_us_image->move(public_path('public/assets/landing/image'), $imageName);
                 $data['about_us_image'] = $imageName;
             }
 
             if ($request->has('feature_section_image')) {
-                if (isset($data['feature_section_image']) && file_exists(public_path('assets/landing/image/' . $data['feature_section_image']))) {
-                    unlink(public_path('assets/landing/image/' . $data['feature_section_image']));
+                if (isset($data['feature_section_image']) && file_exists(public_path('public/assets/landing/image/' . $data['feature_section_image']))) {
+                    unlink(public_path('public/assets/landing/image/' . $data['feature_section_image']));
                 }
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->feature_section_image->move(public_path('assets/landing/image'), $imageName);
+                $request->feature_section_image->move(public_path('public/assets/landing/image'), $imageName);
                 $data['feature_section_image'] = $imageName;
             }
             if ($request->has('mobile_app_section_image')) {
-                if (isset($data['mobile_app_section_image']) && file_exists(public_path('assets/landing/image/' . $data['mobile_app_section_image']))) {
-                    unlink(public_path('assets/landing/image/' . $data['mobile_app_section_image']));
+                if (isset($data['mobile_app_section_image']) && file_exists(public_path('public/assets/landing/image/' . $data['mobile_app_section_image']))) {
+                    unlink(public_path('public/assets/landing/image/' . $data['mobile_app_section_image']));
                 }
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->mobile_app_section_image->move(public_path('assets/landing/image'), $imageName);
+                $request->mobile_app_section_image->move(public_path('public/assets/landing/image'), $imageName);
                 $data['mobile_app_section_image'] = $imageName;
             }
 
             if ($request->has('contact_us_image')) {
-                if (isset($data['contact_us_image']) && file_exists(public_path('assets/landing/image/' . $data['contact_us_image']))) {
-                    unlink(public_path('assets/landing/image/' . $data['contact_us_image']));
+                if (isset($data['contact_us_image']) && file_exists(public_path('public/assets/landing/image/' . $data['contact_us_image']))) {
+                    unlink(public_path('public/assets/landing/image/' . $data['contact_us_image']));
                 }
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->contact_us_image->move(public_path('assets/landing/image'), $imageName);
+                $request->contact_us_image->move(public_path('public/assets/landing/image'), $imageName);
                 $data['contact_us_image'] = $imageName;
             }
 
@@ -1681,20 +1681,20 @@ class BusinessSettingsController extends Controller
                 $data = json_decode($images->value, true);
             }
             if ($request->has('top_content_image')) {
-                if (isset($data['top_content_image']) && file_exists(public_path('assets/landing/image/' . $data['top_content_image']))) {
-                    unlink(public_path('assets/landing/image/' . $data['top_content_image']));
+                if (isset($data['top_content_image']) && file_exists(public_path('public/assets/landing/image/' . $data['top_content_image']))) {
+                    unlink(public_path('public/assets/landing/image/' . $data['top_content_image']));
                 }
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->top_content_image->move(public_path('assets/landing/image'), $imageName);
+                $request->top_content_image->move(public_path('public/assets/landing/image'), $imageName);
                 $data['top_content_image'] = ['img' => $imageName, 'storage' => Helpers::getDisk()];
             }
 
             if ($request->has('mobile_app_section_image')) {
-                if (isset($data['mobile_app_section_image']) && file_exists(public_path('assets/landing/image/' . $data['mobile_app_section_image']))) {
-                    unlink(public_path('assets/landing/image/' . $data['mobile_app_section_image']));
+                if (isset($data['mobile_app_section_image']) && file_exists(public_path('public/assets/landing/image/' . $data['mobile_app_section_image']))) {
+                    unlink(public_path('public/assets/landing/image/' . $data['mobile_app_section_image']));
                 }
                 $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid() . ".png";
-                $request->mobile_app_section_image->move(public_path('assets/landing/image'), $imageName);
+                $request->mobile_app_section_image->move(public_path('public/assets/landing/image'), $imageName);
                 $data['mobile_app_section_image'] = ['img' => $imageName, 'storage' => Helpers::getDisk()];
             }
             Helpers::businessUpdateOrInsert(['key' => 'web_app_landing_page_settings'], [
@@ -1902,8 +1902,8 @@ class BusinessSettingsController extends Controller
         $item = BusinessSetting::where('key', $tab)->first();
         $data = $item ? json_decode($item->value, true) : null;
         if ($data && array_key_exists($key, $data)) {
-            if (isset($data[$key]['img']) && file_exists(public_path('assets/landing/image') . $data[$key]['img'])) {
-                unlink(public_path('assets/landing/image') . $data[$key]['img']);
+            if (isset($data[$key]['img']) && file_exists(public_path('public/assets/landing/image') . $data[$key]['img'])) {
+                unlink(public_path('public/assets/landing/image') . $data[$key]['img']);
             }
             array_splice($data, $key, 1);
 

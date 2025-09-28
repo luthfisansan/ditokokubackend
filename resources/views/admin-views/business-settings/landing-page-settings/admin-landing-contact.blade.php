@@ -170,7 +170,7 @@
                                             <img
                                             src="{{\App\CentralLogics\Helpers::get_full_url('contact_us_image', $contact_us_image?->value?? '', $contact_us_image?->storage[0]?->value ?? 'public','upload_image_4')}}"
 
-                                          class="vertical-img mw-100 onerror-image" alt="contact_us_image" data-onerror-image="{{asset("public/assets/admin/img/upload-4.png")}}">
+                                          class="vertical-img mw-100 onerror-image" alt="contact_us_image" data-onerror-image="{{asset("assets/admin/img/upload-4.png")}}">
                                         </div>
                                           <input type="file"  name="image" hidden="">
                                           @if (isset($contact_us_image['value']))

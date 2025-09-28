@@ -100,7 +100,7 @@
         "use strict";
             $('#reset_btn').click(function(){
                 $('#zone').val("{{$notification->zone_id}}").trigger('change');
-                $('#viewer').attr('src', "{{asset('storage/app/public/notification')}}/{{$notification['image']}}");
+                $('#viewer').attr('src', "{{asset('public/storage/notification')}}/{{$notification['image']}}");
             })
         </script>
 @endpush

@@ -350,7 +350,7 @@
         });
 
         $('#reset_btn').click(function(){
-            $('#viewer').attr('src','{{asset('storage/app/public/delivery-man')}}/{{$deliveryMan['image']}}');
+            $('#viewer').attr('src','{{asset('public/storage/delivery-man')}}/{{$deliveryMan['image']}}');
             $("#coba").empty().spartanMultiImagePicker({
                 fieldName: 'identity_image[]',
                 maxCount: 5,

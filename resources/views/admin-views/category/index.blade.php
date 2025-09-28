@@ -98,7 +98,7 @@
                                         class="text-danger">* ( {{ translate('messages.ratio') }} 1:1)</small></label>
                                 <label class="text-center my-auto position-relative d-inline-block">
                                     <img class="img--176 border" id="viewer"
-                                        @if (isset($category)) src="{{ asset('storage/app/public/category') }}/{{ $category['image'] }}"
+                                        @if (isset($category)) src="{{ asset('public/storage/category') }}/{{ $category['image'] }}"
                                         @else
                                         src="{{ asset('public/assets/admin/img/upload-img.png') }}" @endif
                                         alt="image" />

@@ -280,6 +280,48 @@ class CustomerAuthController extends Controller
 
     }
 
+    public function store_otp(Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'phone' => 'required',
+        'otp' => 'required|digits:6'
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([
+            'status' => false,
+            'errors' => Helpers::error_processor($validator)
+        ], 403);
+    }
+
+    try {
+        // Store/update OTP in phone_verifications table
+        DB::table('phone_verifications')->updateOrInsert(
+            ['phone' => $request['phone']],
+            [
+                'token' => $request['otp'],
+                'otp_hit_count' => 0,
+                'is_temp_blocked' => 0,
+                'temp_block_time' => null,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
+
+        return response()->json([
+            'status' => true,
+            'message' => 'OTP stored successfully'
+        ], 200);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => false,
+            'message' => 'Failed to store OTP'
+        ], 500);
+    }
+}
+
+
     public function firebase_auth_verify(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -722,7 +764,7 @@ class CustomerAuthController extends Controller
                         $aud = 'https://appleid.apple.com';
                         $iat = strtotime('now');
                         $exp = strtotime('+60days');
-                        $keyContent = file_get_contents('storage/app/public/apple-login/'.$apple_login->service_file);
+                        $keyContent = file_get_contents('public/storage/apple-login/'.$apple_login->service_file);
 
                         $token = JWT::encode([
                             'iss' => $teamId,

@@ -37,7 +37,7 @@ class OtherBannerController extends Controller
 //        $awsBaseURL = rtrim($awsUrl, '/').'/'.ltrim($awsBucket.'/');
 
 //        $data =  [
-//            'promotional_banner_url' => asset('storage/app/public/promotional_banner'),
+//            'promotional_banner_url' => asset('public/storage/promotional_banner'),
 //            'promotional_banner_s3_url' => $awsBaseURL."promotional_banner",
 //        ];
 //
@@ -71,8 +71,8 @@ class OtherBannerController extends Controller
 //        $awsBucket = config('filesystems.disks.s3.bucket');
 //        $awsBaseURL = rtrim($awsUrl, '/').'/'.ltrim($awsBucket.'/');
         $data =  [
-//            'banner_video_content_url' => asset('storage/app/public/promotional_banner/video'),
-//            'promotional_banner_url' => asset('storage/app/public/promotional_banner'),
+//            'banner_video_content_url' => asset('public/storage/promotional_banner/video'),
+//            'promotional_banner_url' => asset('public/storage/promotional_banner'),
 //            'banner_video_content_s3_url' => $awsBaseURL.'promotional_banner/video',
 //            'promotional_banner_s3_url' => $awsBaseURL.'promotional_banner',
             'banner_contents' => $banner_contents
@@ -91,7 +91,7 @@ class OtherBannerController extends Controller
 //        $awsBucket = config('filesystems.disks.s3.bucket');
 //        $awsBaseURL = rtrim($awsUrl, '/').'/'.ltrim($awsBucket.'/');
         $data =  [
-//            'why_choose_url' => asset('storage/app/public/why_choose'),
+//            'why_choose_url' => asset('public/storage/why_choose'),
 //            'why_choose_s3_url' => $awsBaseURL.'why_choose',
             'banners' => $banners
         ];

@@ -27,7 +27,7 @@
                     <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                           data-bs-title="Follow our documentation">
 
-                                <img src="{{asset('public/assets/installation')}}/assets/img/svg-icons/info.svg"
+                                <img src="{{asset('public/assets/installation')}}/public/assets/img/svg-icons/info.svg"
                                      class="svg" alt="">
                             </span>
                 </a>
@@ -48,7 +48,7 @@
                         <div class="col-md-6">
                             <div class="d-flex gap-3 align-items-center">
                                 <img
-                                    src="{{asset('public/assets/installation')}}/assets/img/svg-icons/php-version.svg"
+                                    src="{{asset('public/assets/installation')}}/public/assets/img/svg-icons/php-version.svg"
                                     alt="">
                                 <div
                                     class="d-flex align-items-center gap-2 justify-content-between flex-grow-1">
@@ -57,7 +57,7 @@
                                     @php($phpVersion = number_format((float)phpversion(), 2, '.', ''))
                                     @if ($phpVersion >= 8.1)
                                         <img width="20"
-                                             src="{{asset('public/assets/installation')}}/assets/img/svg-icons/check.png"
+                                             src="{{asset('public/assets/installation')}}/public/assets/img/svg-icons/check.png"
                                              alt="">
                                     @else
                                         <span class="cursor-pointer" data-bs-toggle="tooltip"
@@ -67,7 +67,7 @@
                                                    <a href='https://support.cpanel.net/hc/en-us/articles/360052624713-How-to-change-the-PHP-version-for-a-domain-in-cPanel-or-WHM'
                                                    class='d-block' target='_blank'>See how to update</a> ">
                                                 <img
-                                                    src="{{asset('public/assets/installation')}}/assets/img/svg-icons/info.svg"
+                                                    src="{{asset('public/assets/installation')}}/public/assets/img/svg-icons/info.svg"
                                                     class="svg text-danger" alt="">
                                             </span>
                                     @endif
@@ -79,18 +79,18 @@
                             @if ($key != 'db_file_write_perm' && $key != 'routes_file_write_perm')
                                 <div class="col-md-6">
                                     <div class="d-flex gap-3 align-items-center">
-                                        <img src="{{ asset('public/assets/installation') }}/assets/img/svg-icons/curl-enabled.svg" alt="">
+                                        <img src="{{ asset('public/assets/installation') }}/public/assets/img/svg-icons/curl-enabled.svg" alt="">
                                         <div class="d-flex align-items-center gap-2 justify-content-between flex-grow-1">
                                             {{ translate($key) . ' ' . translate('Enabled') }}
 
                                             @if ($item)
-                                                <img width="20" src="{{ asset('public/assets/installation') }}/assets/img/svg-icons/check.png" alt="">
+                                                <img width="20" src="{{ asset('public/assets/installation') }}/public/assets/img/svg-icons/check.png" alt="">
                                             @else
                                                 <span class="cursor-pointer" data-bs-toggle="tooltip"
                                                       data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                                                       data-bs-html="true" data-bs-delay='{"hide":1000}'
                                                       data-bs-title="{{ translate($key) }} extension is not enabled in your server. To enable go to PHP version > extensions and select {{ translate($key) }}.">
-                            <img src="{{ asset('public/assets/installation') }}/assets/img/svg-icons/info.svg"
+                            <img src="{{ asset('public/assets/installation') }}/public/assets/img/svg-icons/info.svg"
                                  class="svg text-danger" alt="">
                         </span>
                                             @endif
@@ -102,7 +102,7 @@
                         <div class="col-md-6">
                             <div class="d-flex gap-3 align-items-center">
                                 <img
-                                    src="{{asset('public/assets/installation')}}/assets/img/svg-icons/route-service.svg"
+                                    src="{{asset('public/assets/installation')}}/public/assets/img/svg-icons/route-service.svg"
                                     alt="">
                                 <div
                                     class="d-flex align-items-center gap-2 justify-content-between flex-grow-1">
@@ -110,7 +110,7 @@
 
                                     @if ($permission['db_file_write_perm'])
                                         <img width="20"
-                                             src="{{asset('public/assets/installation')}}/assets/img/svg-icons/check.png"
+                                             src="{{asset('public/assets/installation')}}/public/assets/img/svg-icons/check.png"
                                              alt="">
                                     @else
                                         <span class="cursor-pointer" data-bs-toggle="tooltip"
@@ -118,7 +118,7 @@
                                               data-bs-html="true" data-bs-delay='{"hide":1000}'
                                               data-bs-title="...">
                                                 <img
-                                                    src="{{asset('public/assets/installation')}}/assets/img/svg-icons/info.svg"
+                                                    src="{{asset('public/assets/installation')}}/public/assets/img/svg-icons/info.svg"
                                                     class="svg text-danger" alt="">
                                             </span>
                                     @endif
@@ -128,7 +128,7 @@
                         <div class="col-md-6">
                             <div class="d-flex gap-3 align-items-center">
                                 <img
-                                    src="{{asset('public/assets/installation')}}/assets/img/svg-icons/route-service.svg"
+                                    src="{{asset('public/assets/installation')}}/public/assets/img/svg-icons/route-service.svg"
                                     alt="">
                                 <div
                                     class="d-flex align-items-center gap-2 justify-content-between flex-grow-1">
@@ -137,7 +137,7 @@
 
                                     @if ($permission['routes_file_write_perm'])
                                         <img width="20"
-                                             src="{{asset('public/assets/installation')}}/assets/img/svg-icons/check.png"
+                                             src="{{asset('public/assets/installation')}}/public/assets/img/svg-icons/check.png"
                                              alt="">
                                     @else
                                         <span class="cursor-pointer" data-bs-toggle="tooltip"
@@ -145,7 +145,7 @@
                                               data-bs-html="true" data-bs-delay='{"hide":1000}'
                                               data-bs-title="...">
                                                 <img
-                                                    src="{{asset('public/assets/installation')}}/assets/img/svg-icons/info.svg"
+                                                    src="{{asset('public/assets/installation')}}/public/assets/img/svg-icons/info.svg"
                                                     class="svg text-danger" alt="">
                                             </span>
                                     @endif

@@ -1867,7 +1867,7 @@
                         <div class="right-side d-flex word-nowrap align-items-center">
                             <img class="onerror-image"
                                 data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}"
-                                {{--                        src="{{ asset('storage/app/public/business/' . $fav) }}" --}}
+                                {{--                        src="{{ asset('public/storage/business/' . $fav) }}" --}}
                                 src="{{ \App\CentralLogics\Helpers::get_full_url('business', $fav?->value ?? '', $fav?->storage[0]?->value ?? 'public', 'favicon') }}"
                                 alt="image">
                             {{ translate('messages.Still increasing') }}

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PpobTransactionController;
+use App\Http\Controllers\Admin\PpobMasterController;
+use App\Http\Controllers\Admin\PPOBTransactionReportController; // Add this import
 
 
 Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
@@ -9,6 +12,39 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
         Route::get('/test', function () {
             return view('admin-views.test.VendorPanel-tax-report');
         });
+
+            Route::group(['prefix' => 'ppob', 'as' => 'ppob.'], function () {
+        
+        Route::group(['prefix' => 'transactions', 'as' => 'transactions.'], function () {
+            Route::get('/', [PpobTransactionController::class, 'index'])->name('index');
+            Route::get('/all', [PpobTransactionController::class, 'all'])->name('all');
+            Route::get('/pending', [PpobTransactionController::class, 'pending'])->name('pending');
+            Route::get('/success', [PpobTransactionController::class, 'success'])->name('success');
+            Route::get('/failed', [PpobTransactionController::class, 'failed'])->name('failed');
+            Route::get('/create', [PpobTransactionController::class, 'create'])->name('create');
+            Route::post('/', [PpobTransactionController::class, 'store'])->name('store');
+             Route::get('/report', [PPOBTransactionReportController::class, 'index'])->name('report');
+            Route::get('/{id}', [PpobTransactionController::class, 'show'])->name('show');
+            Route::get('/{id}/edit', [PpobTransactionController::class, 'edit'])->name('edit');
+            Route::put('/{id}', [PpobTransactionController::class, 'update'])->name('update');
+            Route::delete('/{id}', [PpobTransactionController::class, 'destroy'])->name('destroy');
+        });
+
+          
+        
+ Route::group(['prefix' => 'master', 'as' => 'master.'], function () {
+        Route::get('/', [PpobMasterController::class, 'index'])->name('index');
+        Route::get('/create', [PpobMasterController::class, 'create'])->name('create');
+        Route::post('/', [PpobMasterController::class, 'store'])->name('store');
+        Route::get('/{id}', [PpobMasterController::class, 'show'])->name('show');
+        Route::get('/{id}/edit', [PpobMasterController::class, 'edit'])->name('edit');
+        Route::put('/{id}', [PpobMasterController::class, 'update'])->name('update');
+        Route::delete('/{id}', [PpobMasterController::class, 'destroy'])->name('destroy');
+        Route::post('/{id}/toggle-status', [PpobMasterController::class, 'toggleStatus'])->name('toggle-status');
+    });
+      
+        
+    });
         Route::get('get-all-stores', 'VendorController@get_all_stores')->name('get_all_stores');
         Route::get('lang/{locale}', 'LanguageController@lang')->name('lang');
         Route::get('settings', 'SystemController@settings')->name('settings');

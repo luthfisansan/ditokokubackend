@@ -423,6 +423,123 @@
                 @endif
                 <!-- End Category -->
 
+
+                <li class="nav-item">
+    <small class="nav-subtitle" title="{{ translate('messages.ppob_section') }}">{{ translate('messages.order_management') }}</small>
+    <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+</li>
+
+
+
+<!-- PPOB Module -->
+@if (\App\CentralLogics\Helpers::module_permission_check('ppob'))
+<li class="navbar-vertical-aside-has-menu {{ Request::is('admin/ppob*') ? 'active' : '' }}">
+    <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:" title="{{ translate('messages.ppob') }}">
+        <i class="tio-receipt nav-icon"></i>
+        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{ translate('messages.ppob') }}</span>
+    </a>
+    <ul class="js-navbar-vertical-aside-submenu nav nav-sub" style="display:{{ Request::is('admin/ppob*') ? 'block' : 'none' }}">
+        
+        <!-- Master Data PPOB -->
+        @if (\App\CentralLogics\Helpers::module_permission_check('ppob_master'))
+        <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/ppob/master*') ? 'active' : '' }}">
+            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:" title="{{ translate('messages.ppob_master_data') }}">
+                <span class="tio-circle nav-indicator-icon"></span>
+                <span class="text-truncate">{{ translate('messages.master_data_ppob') }}</span>
+            </a>
+            <ul class="js-navbar-vertical-aside-submenu nav nav-sub" style="display:{{ Request::is('admin/ppob/master*') ? 'block' : 'none' }}">
+                <li class="nav-item {{ Request::is('admin/ppob/master') || Request::is('admin/ppob/master/index') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.ppob.master.index') }}" title="{{ translate('messages.product_list') }}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span>
+                        <span class="text-truncate sidebar--badge-container">
+                            {{ translate('messages.products') }}
+                            <span class="badge badge-soft-info badge-pill ml-1">
+                                {{ \DB::table('pricelist_ppob')->count() }}
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item {{ Request::is('admin/ppob/master/create') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.ppob.master.create') }}" title="{{ translate('messages.add_product') }}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span>
+                        <span class="text-truncate">{{ translate('messages.add_product') }}</span>
+                    </a>
+                </li>
+              
+            </ul>
+        </li>
+        @endif
+
+        <!-- Transaksi PPOB -->
+        @if (\App\CentralLogics\Helpers::module_permission_check('ppob_transaction'))
+        <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/ppob/transactions*') ? 'active' : '' }}">
+            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:" title="{{ translate('messages.ppob_transactions') }}">
+                <span class="tio-circle nav-indicator-icon"></span>
+                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">{{ translate('messages.transactions') }}</span>
+            </a>
+            <ul class="js-navbar-vertical-aside-submenu nav nav-sub" style="display:{{ Request::is('admin/ppob/transactions*') ? 'block' : 'none' }}">
+                <li class="nav-item {{ Request::is('admin/ppob/transactions') || Request::is('admin/ppob/transactions/all') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.ppob.transactions.index') }}" title="{{ translate('messages.all_transactions') }}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span>
+                        <span class="text-truncate sidebar--badge-container">
+                            {{ translate('messages.all_transactions') }}
+                            <span class="badge badge-soft-info badge-pill ml-1">
+                                {{ \App\Models\PpobTransaction::count() }}
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item {{ Request::is('admin/ppob/transactions/pending') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.ppob.transactions.pending') }}" title="{{ translate('messages.pending_transactions') }}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span>
+                        <span class="text-truncate sidebar--badge-container">
+                            {{ translate('messages.pending') }}
+                            <span class="badge badge-soft-warning badge-pill ml-1">
+                                {{ \App\Models\PpobTransaction::where('status', 'pending')->count() }}
+                            </span>
+                        </span>
+                    </a>
+                </li>
+    <li class="nav-item {{ request('status') == 'Sukses' ? 'active' : '' }}">
+    <a class="nav-link" 
+       href="{{ route('admin.ppob.transactions.index', ['status' => 'Sukses']) }}" 
+       title="{{ translate('messages.success_transactions') }}">
+        <span class="tio-circle-outlined nav-indicator-icon"></span>
+        <span class="text-truncate sidebar--badge-container">
+            {{ translate('messages.success') }}
+            <span class="badge badge-soft-success badge-pill ml-1">
+                {{ \App\Models\PpobTransaction::where('status', 'Sukses')->count() }}
+            </span>
+        </span>
+    </a>
+</li>
+
+                <li class="nav-item {{ Request::is('admin/ppob/transactions/failed') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.ppob.transactions.failed') }}" title="{{ translate('messages.failed_transactions') }}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span>
+                        <span class="text-truncate sidebar--badge-container">
+                            {{ translate('messages.failed') }}
+                            <span class="badge badge-soft-danger badge-pill ml-1">
+                                {{ \App\Models\PpobTransaction::where('status', 'failed')->count() }}
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        @endif
+
+        <!-- Reports PPOB (Optional) -->
+      
+
+        <!-- Settings PPOB (Optional) -->
+       
+
+    </ul>
+</li>
+@endif
+
+
                 <!-- Attributes -->
                 @if (\App\CentralLogics\Helpers::module_permission_check('attribute'))
                 <li class="navbar-vertical-aside-has-menu {{ Request::is('admin/attribute*') ? 'active' : '' }}">

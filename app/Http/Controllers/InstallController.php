@@ -146,11 +146,11 @@ class InstallController extends Controller
         $newRouteServiceProvier = base_path('app/Providers/RouteServiceProvider.txt');
         copy($newRouteServiceProvier, $previousRouteServiceProvier);
 
-        Helpers::remove_dir('storage/app/public');
+        Helpers::remove_dir('storage');
         Storage::disk('public')->makeDirectory('/');
 
         try {
-            Madzipper::make('installation/backup/public.zip')->extractTo('storage/app');
+            Madzipper::make('installation/backup/public.zip')->extractTo('public/storage/app');
         }catch (\Exception $exception){
             info($exception);
         }

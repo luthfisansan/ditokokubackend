@@ -217,7 +217,7 @@
                                                             <h4 class="mb-3  ml-4 text-capitalize d-flex align-items-center">{{translate('Video')}}</h4>
                                                             @php($extention =explode('.', $banner_video_content?->value))
                                                             <video width="320" height="140" id="video-preview" controls>
-                                                                <source src="{{(count($banner_video_content?->storage)>0 && $banner_video_content?->storage[0]?->value == 's3')?$awsBaseURL.'promotional_banner/video/'.$banner_video_content?->value :asset('storage/app/public/promotional_banner/video').'/'.$banner_video_content?->value}}" type="video/{{ data_get($extention,1,'mp4') }}">
+                                                                <source src="{{(count($banner_video_content?->storage)>0 && $banner_video_content?->storage[0]?->value == 's3')?$awsBaseURL.'promotional_banner/video/'.$banner_video_content?->value :asset('public/storage/promotional_banner/video').'/'.$banner_video_content?->value}}" type="video/{{ data_get($extention,1,'mp4') }}">
                                                             </video>
                                                         </div>
                                                         @endif

@@ -176,7 +176,7 @@
                                         <label
                                             class="form-label">{{translate('messages.service_file')}} {{ $appleLoginService['service_file']?translate('(Already Exists)'):'' }}</label>
                                         <input type="file" accept=".p8" class="form-control" name="service_file"
-                                            value="{{ 'storage/app/public/apple-login/'.$appleLoginService['service_file'] }}">
+                                            value="{{ 'public/storage/apple-login/'.$appleLoginService['service_file'] }}">
                                     </div>
                                     <div class="btn--container justify-content-end">
                                         <button type="reset" class="btn btn--reset mb-2">{{translate('Reset')}}</button>

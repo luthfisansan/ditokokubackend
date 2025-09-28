@@ -746,7 +746,7 @@
                                                 href="{{ route('admin.customer.view', [$review['user_id']]) }}">
                                                 <div class="avatar avatar-circle">
                                                     <img class="avatar-img" width="75" height="75"
-                                                        src="{{ asset('storage/app/public/profile/') }}/{{ $review->customer ? $review->customer->image : '' }}"
+                                                        src="{{ asset('public/storage/profile/') }}/{{ $review->customer ? $review->customer->image : '' }}"
                                                         alt="Image Description">
                                                 </div>
                                                 <div class="ml-3">

@@ -112,7 +112,7 @@ class FileManagerController extends Controller
                     $zip->close();
                 }
             }else{
-                Madzipper::make($file)->extractTo('storage/app/'.$request->path);
+                Madzipper::make($file)->extractTo('public/storage/app/'.$request->path);
             }
 
 

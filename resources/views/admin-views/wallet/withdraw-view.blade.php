@@ -2,7 +2,7 @@
 @section('title',translate('Withdraw information View'))
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/assets')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="{{asset('public/assets/css/croppie.css')}}" rel="stylesheet">
 
 @endpush
